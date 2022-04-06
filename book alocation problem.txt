@@ -1,0 +1,49 @@
+public class Solution {
+    public static boolean istrue(int []time,int n,int m,int mid)
+    {
+        int tmp=0;
+        int a=1;
+        for(int i=0;i<m;i++)
+        {
+          if(tmp+time[i]<=mid)
+          {
+              tmp=tmp+time[i];
+          }
+          else
+            {
+                a++;
+              if(a>n || time[i]>mid)
+              {
+                  return false;
+              }
+              tmp=time[i];
+            }
+        }
+        return true;
+    }
+    public static long ayushGivesNinjatest(int n, int m, int[] time) {
+        int sum=0;
+        int mid;
+        for(int i=0;i<time.length;i++)
+        {
+            sum=sum+time[i];
+        }
+        int start=0;
+        int end=sum;
+        int ans=-1;
+        while(start<=end)
+        {
+            mid=(start+end)/2;
+            if(Solution.istrue(time,n,m,mid))
+            {
+                ans=mid;
+                end=mid-1;
+            }
+            else
+            {
+                start=mid+1;
+            }
+        }
+        return ans;
+    }
+}
