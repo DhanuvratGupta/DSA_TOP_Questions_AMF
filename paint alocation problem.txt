@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+
+public class Solution 
+{
+    public static boolean istrue(ArrayList<Integer> arr,int k,int mid)
+    {
+        int tmp=0;
+        int one_pair=1;
+        for(int i=0;i<arr.size();i++)
+        {
+            if(tmp+arr.get(i)<=mid)
+            {
+                tmp=tmp+arr.get(i);
+            }
+            else
+            {
+                one_pair++;
+                if(one_pair>k || arr.get(i)>mid)
+                {
+                    return false;
+                }
+                tmp=arr.get(i);
+            }
+        }
+        return true;
+    }
+    public static int findLargestMinDistance(ArrayList<Integer> boards, int k)
+    {
+        int sum=0;
+        int mid;
+        int ans=-1;
+        for(int i=0;i<boards.size();i++)
+        {
+            sum=sum+boards.get(i);
+        }
+        int start=0;
+        int end=sum;
+        while(start<=end)
+        {
+            mid=(start+end)/2;
+            if(istrue(boards,k,mid))
+            {
+                ans=mid;
+                end=mid-1;
+            }
+            else
+            {
+                start=mid+1;
+            }
+        }
+        return ans;
+
+    }
+}
