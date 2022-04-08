@@ -1,0 +1,19 @@
+
+public class Solution {
+
+	public static void insertionSort(int n , int[] arr) {
+		for(int i=1;i<n;i++)
+        {
+            int a;
+            for(int j=0;j<i;j++)
+            {
+                if(arr[i]<arr[j])
+                {
+                    a=arr[j];
+                    arr[j]=arr[i];
+                    arr[i]=a;
+                }
+            }
+        }
+	}
+}
