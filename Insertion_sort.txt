@@ -1,19 +1,24 @@
-
+//time Complexity - o(n)
 public class Solution {
 
 	public static void insertionSort(int n , int[] arr) {
 		for(int i=1;i<n;i++)
         {
-            int a;
-            for(int j=0;j<i;j++)
+            int tmp=arr[i];
+            for(int j=i-1;j>=0;j--)
             {
-                if(arr[i]<arr[j])
+                if(arr[j]>tmp)
                 {
-                    a=arr[j];
-                    arr[j]=arr[i];
-                    arr[i]=a;
+                    arr[j+1]=arr[j];
+                    arr[j]=tmp;
+                }
+                else
+                {
+                    break;
                 }
             }
         }
+            
+        
 	}
 }
