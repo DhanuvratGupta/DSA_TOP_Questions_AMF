@@ -1,0 +1,41 @@
+class Solution {
+    public List<List<Integer>> l1 = new ArrayList<>();
+    public void permutation(int nums[],int index)
+    {
+        if(index>=nums.length)
+        {
+            List<Integer>list=new ArrayList<>();
+            for(int k=0;k<nums.length;k++)
+            {
+                list.add(nums[k]);
+            }
+            this.l1.add(list);
+            System.out.println(list);
+            System.out.println(l1);
+            return;
+        }
+        
+        for(int i=index;i<nums.length;i++)
+        {
+            int tmp=nums[i];
+            nums[i]=nums[index];
+            nums[index]=tmp;
+            //System.out.println(list);
+            permutation(nums,index+1);
+            //backtracking
+            int tmp1=nums[i];
+            nums[i]=nums[index];
+            nums[index]=tmp1;
+        }
+    }
+    
+    public List<List<Integer>> permute(int[] nums) {      //nums[]={1,2,3};
+        
+        Solution s=new Solution();
+        
+        s.permutation(nums,0);
+        return s.l1;
+
+        
+    }
+}
