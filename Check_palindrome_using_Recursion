@@ -1,0 +1,29 @@
+class HelloWorld {
+    static String s="babbab";
+    static char a[]=s.toCharArray();
+    public static boolean fun(char start,char end,int i)
+    {
+        if(start!=end)
+        {
+            return false;
+        }
+        if(i>a.length/2)
+        {
+            return true;
+        }
+        else{
+            start=a[0+i];
+            end=a[a.length-1-i];
+            i=i+1;
+            return fun(start,end,i);
+        }
+        
+    }
+    public static void main(String[] args) {
+        char start=s.charAt(0);
+        char end=s.charAt(s.length()-1);
+       
+        boolean ans=fun(start,end,0);
+        System.out.println(ans);
+    }
+}
