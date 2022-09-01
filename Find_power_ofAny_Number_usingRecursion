@@ -1,0 +1,28 @@
+class HelloWorld {
+    public static int fun(int a,int power)
+    {
+        if(power==0)
+        {
+            return 1;
+        }
+        if(power==1)
+        {
+            return a; 
+        }
+        int ans=fun(a,power/2);
+        if(power%2==0)
+        {
+            return ans*ans;
+        }
+        else
+        {
+            return a*ans*ans;
+        }
+    }
+    
+    public static void main(String[] args) {
+        int a=3,power=4;
+       int  res=fun(a,power);
+        System.out.println(res);
+    }
+}
