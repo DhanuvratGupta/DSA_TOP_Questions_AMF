@@ -1,0 +1,29 @@
+import java.util.*;
+public class Solution {
+	public static int[] findArraySum(int[] a, int n, int[] b, int m) {
+		ArrayList<Integer>list=new ArrayList<>();
+        int res=0,res1=0;
+        for(int i=0;i<a.length;i++) {
+         res=res*10+a[i];
+       }
+        for(int i=0;i<b.length;i++) {
+         res1=res1*10+b[i];
+       }
+        
+       int total=res+res1;
+       
+       while(total!=0)
+       {
+           list.add(total%10);
+           total=total/10;
+       }
+        Collections.reverse(list);
+        
+        int tmp[]=new int[list.size()];
+        for(int i=0;i<list.size();i++)
+        {
+            tmp[i]=list.get(i);
+        }
+        return tmp;
+	}
+}
