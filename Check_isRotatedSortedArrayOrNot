@@ -1,0 +1,23 @@
+class Solution {
+    public boolean check(int tmp[])
+    {
+        int count=0;
+        for(int i=1;i<tmp.length;i++)
+        {
+            if(tmp[i-1] > tmp[i])
+            {
+                count++;
+            }
+         }
+        if(tmp[tmp.length-1]>tmp[0])
+        {
+            count++;
+        }
+        if(count<=1)
+        {
+            return true;
+        }
+        return false;
+       
+    }
+}
