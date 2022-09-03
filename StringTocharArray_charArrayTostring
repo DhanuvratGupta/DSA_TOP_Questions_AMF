@@ -1,0 +1,8 @@
+class HelloWorld {
+    public static void main(String[] args) {
+        char a[]={'a','b'};
+        String a1=String.valueOf(a);
+        System.out.println(a1);
+        char b[]=a1.toCharArray();
+    }
+}
