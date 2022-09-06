@@ -1,0 +1,47 @@
+class Solution {
+    public String reverseWords(String s) {
+        String s1="",s2="";
+        int i=0;
+        s=s.trim().replaceAll("\\s{2,}", " ");
+        int end=s.length()-1;
+        System.out.println(s);
+        while(-1<end)
+        {
+            
+            
+            if(s.charAt(end)==' ')
+            {
+                
+                System.out.println(end);
+                StringBuffer string=new StringBuffer(s1);
+                s1=(string.reverse()).toString();
+                s2=s2+s1+" ";
+                s1="";
+                end--;
+            }
+            else if(end==0)
+            {
+                
+                System.out.println(end);
+                
+                s1=s1+String.valueOf(s.charAt(end));
+                StringBuffer string=new StringBuffer(s1);
+                s1=(string.reverse()).toString();
+                s2=s2+s1;
+                s1="";
+                end--;
+            }
+            else
+            {
+                
+                System.out.println(end);
+                
+                s1=s1+String.valueOf(s.charAt(end));
+                end--;
+            }
+            
+        }
+        
+        return s2;
+    }
+}
