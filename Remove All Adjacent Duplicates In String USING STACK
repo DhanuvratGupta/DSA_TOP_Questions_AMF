@@ -1,0 +1,32 @@
+class Solution {
+    public String removeDuplicates(String s) {
+        Stack<Character> stack = new Stack<>();
+        stack.push(s.charAt(0));
+        int start=1;
+        while(start<s.length())
+        {
+            if(!stack.isEmpty() && stack.peek()==s.charAt(start))
+            {
+                stack.pop();
+                start++;
+            }
+            else
+            {
+                
+                stack.push(s.charAt(start));
+                start++;
+            }
+            
+        }
+        System.out.println(stack);
+        s="";
+        while(!stack.isEmpty())
+        {
+            s=s+stack.pop();
+        }
+        StringBuilder string=new StringBuilder(s);
+        return string.reverse().toString();
+
+    }
+        
+}
