@@ -1,0 +1,30 @@
+class Solution {
+    public static void fun(String mapping[],int index,List<String>list,String s,String digits)
+    {
+        if(index>=digits.length())
+        {
+            list.add(s);
+            return ;
+        }
+        int i=digits.charAt(index)-'0';
+        String s1=mapping[i];
+        for(int j=0;j<s1.length();j++)
+        {
+            s=s+String.valueOf(s1.charAt(j));
+            fun(mapping,index+1,list,s,digits);
+            s=s.substring(0,s.length()-1);
+        }
+    }
+    public List<String> letterCombinations(String digits) {
+        if(digits.length()==0)
+        {
+            return new ArrayList<String>();
+        }
+        String mapping[]={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        List<String>list=new ArrayList<>();
+        int index=0;
+        String s="";
+        fun(mapping,index,list,s,digits);
+        return list;
+    }
+}
