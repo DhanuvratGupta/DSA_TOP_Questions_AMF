@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+
+class Solution {
+    public static void fun(int index,String str,ArrayList<String>list,String s)
+    {
+        if(index==str.length() )
+        {
+            if(s.length()>0)
+            {
+                list.add(s);
+            }
+            return;
+        }
+        //exclude
+        fun(index+1,str,list,s);
+        //print index current value
+        s=s+String.valueOf(str.charAt(index));
+        
+        //include
+        fun(index+1,str,list,s);
+    }
+    public static ArrayList<String> subsequences(String str) {
+        ArrayList<String>list=new ArrayList<>();
+        int index = 0;
+        String s="";
+        fun(index,str,list,s);
+        return list;
+    }
+}
