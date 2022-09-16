@@ -1,0 +1,35 @@
+//input={1,3,4,2,6,8};
+//output={1,3,4};
+//1*2=2  3*2=6  4*2=8
+class Solution {
+    public int[] findOriginalArray(int[] changed) {
+       ArrayList<Integer>list=new ArrayList<>();
+       Queue<Integer>a=new LinkedList<>();
+       Arrays.sort(changed);
+       for(int num:changed)
+       {
+           if(!a.isEmpty() && num==a.peek())
+           {
+               a.poll();
+           }
+           else
+           {
+               a.offer(num*2);
+               list.add(num);
+           }
+               
+       }
+        int a1[]={};
+        //System.out.println(list);
+        if(!a.isEmpty())
+        {
+            return a1;
+        }
+        int ar[]=new int[list.size()];
+        for(int i=0;i<list.size();i++)
+        {
+            ar[i]=list.get(i);
+        }
+        return ar;
+    }
+}
