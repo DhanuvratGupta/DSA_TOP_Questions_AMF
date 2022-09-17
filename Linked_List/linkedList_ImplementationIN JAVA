@@ -87,7 +87,24 @@ class HelloWorld {
            cur.next=null;
         }
     }
-    
+    public void size()
+    {
+        if(head==null)
+        {
+            System.out.println("List is Empty!");
+        }
+        else
+        {
+            node tmp=head;
+            int size=0;
+            while(tmp!=null)
+            {
+                size++;
+                tmp=tmp.next;
+            }
+            System.out.println(size);
+        }
+    }
     
     public static void main(String[] args) {
         HelloWorld s1=new HelloWorld();
