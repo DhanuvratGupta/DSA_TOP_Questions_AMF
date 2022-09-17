@@ -1,0 +1,30 @@
+import java.util.* ;
+import java.io.*; 
+import java.util.* ;
+import java.io.*; 
+
+public class Solution 
+{
+    public static LinkedListNode<Integer> reverseLinkedList(LinkedListNode<Integer> head) 
+    {
+        if(head==null || head.next==null)
+        {
+            return head;
+        }
+        LinkedListNode<Integer>pre=null;
+        LinkedListNode<Integer>nest=null;
+        LinkedListNode<Integer>curr=head;
+        while(curr!=null)
+        {
+            nest=curr.next;
+            curr.next=pre;
+            pre=curr;
+            curr=nest;
+        }
+        
+        
+        
+        return pre;
+        
+    }
+}
