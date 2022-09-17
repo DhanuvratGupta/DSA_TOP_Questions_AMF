@@ -1,0 +1,102 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class HelloWorld {
+    node head;
+    class node{
+        node next;
+        String s;
+        node(String s)
+        {
+            this.s=s;
+            this.next=null;
+        }
+    }
+    public void addFirst(String s)
+    {
+        node a=new node(s);
+        if(head==null)
+        {
+            head=a;
+        }
+        else
+        {
+            a.next=head;
+            head=a;
+        }
+    }
+    public void addlast(String s)
+    {
+        node a=new node(s);
+        if(head==null)
+        {
+            head=a;
+        }
+        else
+        {
+            node cur=head;
+            while(cur.next!=null)
+            {
+                cur=cur.next;
+            }
+            cur.next=a;
+        }
+    }
+    public void print()
+    {
+        
+        if(head==null)
+        {
+            System.out.println("null list");
+        }
+        else
+        {
+            node cur=head;
+            while(cur!=null)
+            {
+                System.out.println(cur.s+"\n");
+                cur=cur.next;
+            }
+            
+        }
+    }
+    public void delete_first()
+    {
+        if(head==null)
+        {
+            System.out.println("List is already empty!");
+        }
+        else
+        {
+            head=head.next;
+        }
+    }
+    public void delete_last()
+    {
+        if(head==null)
+        {
+            System.out.println("List is already empty!");
+        }
+        else
+        {
+           node cur=head;
+           while(cur.next.next!=null)
+           {
+               cur=cur.next;
+           }
+           cur.next=null;
+        }
+    }
+    
+    
+    public static void main(String[] args) {
+        HelloWorld s1=new HelloWorld();
+        s1.addFirst("rahul");
+        s1.addFirst("dhanuvrat");
+        s1.addFirst("ashis");
+        s1.addlast("sharma");
+        s1.delete_first();
+        s1.delete_last();
+        s1.print();
+    }
+}
