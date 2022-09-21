@@ -1,0 +1,32 @@
+import java.util.* ;
+import java.io.*; 
+
+
+public class Solution {
+
+	public static Node kReverse(Node head, int k) {
+		if(head==null)
+        {
+            return null;
+        }
+        Node pre=null;
+        Node curr=head;
+        Node nxt=null;
+        int count=0;
+        while(curr!=null && count<k)
+        {
+            nxt=curr.next;
+            curr.next=pre;
+            pre=curr;
+            curr=nxt;
+            count++;
+        }
+        //recursive call
+        if(nxt!=null)
+        {
+            head.next=kReverse(nxt,k);
+        }
+        return pre;
+
+	}
+}
