@@ -1,0 +1,72 @@
+/*****************************************************
+  
+  Following is the structure of Node.
+  public static class Node {
+    
+    int data;
+    Node next;
+
+    Node(int data) {
+      this . data = data;
+      this . next = null;
+    }
+  }
+
+*****************************************************/
+
+import java.util.*;
+
+public class Solution {
+    public static boolean check(Node a)
+    {
+        Node slow=a;
+        //Node nest=head.next;
+        while(slow!=a)
+        {
+            slow=slow.next;
+            if(slow==null)
+            {
+               break;
+            }
+        }
+        if(slow==a)
+        {
+            return true;
+        }
+        return false;
+    }
+  public static Node removeLoop(Node head) {
+     Map<Node,Boolean>map=new HashMap<>();
+      Node tmp=head;
+      Node s1=head;
+      if(check(s1)==true)
+      {
+          Node pre=tmp;
+          map.put(tmp,true);
+          tmp=tmp.next;
+          while(tmp!=null)
+          {
+              
+              
+              if(map.containsKey(tmp)==true)
+              {
+                  //System.out.println(pre.data);
+                  pre.next=null;
+                  break;
+                  
+              }
+              pre=tmp;
+              map.put(tmp,true);
+              tmp=tmp.next;
+              
+              
+              
+          }
+          
+          
+       }
+      
+      
+      return head;
+  }
+}
