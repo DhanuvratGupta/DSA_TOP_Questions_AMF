@@ -1,0 +1,50 @@
+
+
+public class Solution {
+    
+	public static Node<Integer> sortList(Node<Integer> head) {
+        Node<Integer>tmp=head;
+        Node<Integer>pre=tmp;
+        int zero=0,one=0,two=0;
+        while(tmp!=null)
+        {
+            if(tmp.data==0)
+            {
+                zero++;
+            }
+            else if(tmp.data==1)
+            {
+                one++;
+            }
+            else
+            {
+                two++;
+            }
+            tmp=tmp.next;
+        }
+        tmp=head;
+        while(tmp!=null)
+        {
+            if(zero!=0)
+            {
+                tmp.data=0;
+                zero--;
+            }
+            else if(one!=0)
+            {
+                tmp.data=1;
+                one--;
+            }
+            else if(two!=0)
+            {
+                tmp.data=2;
+                two--;
+            }
+            
+            
+            tmp=tmp.next;
+        }
+        return head;
+        
+	}
+}
