@@ -1,0 +1,34 @@
+import java.util.HashMap;
+public class Solution {
+    
+    public static LinkedListNode<Integer> removeDuplicates(LinkedListNode<Integer> head) {
+
+        HashMap<Integer,Integer>map = new HashMap<>();
+        if(head==null || head.next==null)
+        {
+            return head;
+        }
+        LinkedListNode<Integer>tmp=head;
+        LinkedListNode<Integer>pre=tmp;
+        map.put(tmp.data,1);
+        tmp=tmp.next;
+        while(tmp!=null)
+        {
+            
+            if(tmp!=null && map.containsKey(tmp.data))
+            {
+                pre.next=tmp.next;
+                tmp=tmp.next;
+            }
+            else
+            {
+                map.put(tmp.data,1);   
+                pre=tmp;
+                
+                
+            }
+        }
+        return head;
+    }
+
+}
