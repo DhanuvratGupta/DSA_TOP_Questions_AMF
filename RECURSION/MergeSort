@@ -1,0 +1,62 @@
+import java.util.*;
+class HelloWorld {
+    public static int[] merge(int first[],int sec[])
+    {
+        int arr1[]=new int[first.length+sec.length];
+        int a=0,i=0,j=0,k=0;
+        while(k<first.length && j<sec.length)
+        {
+            if(first[k]>sec[j])
+            {
+                arr1[i]=sec[j];
+                i++;
+                j++;
+            }
+            else
+            {
+                arr1[i]=first[k];
+                i++;
+                k++;
+            }
+            
+            
+        }
+        while(k<first.length)
+        {
+            arr1[i]=first[k];
+            k++;
+            i++;
+        
+        }
+        while(j<sec.length)
+        {
+            arr1[i]=sec[j];
+            i++;
+            j++;
+            
+        }
+        
+        return arr1;
+    }
+    public static int[] divide(int arr[])
+    {
+        //base case
+        if(arr.length==1)
+           return arr;
+        int mid=arr.length/2;
+        int first[] =divide(Arrays.copyOfRange(arr,0,mid));
+        //System.out.println(Arrays.toString(first)+"\n"+mid+" "+arr.length+" "+arr[mid]);
+        int sec[]= divide(Arrays.copyOfRange(arr,mid,arr.length));
+        return merge(first,sec);
+        
+    }
+    public static void main(String[] args) {
+        int arr[]={3,7,0,1,5};
+        
+        System.out.println(Arrays.toString(s));
+        arr=divide(arr);
+        System.out.println(Arrays.toString(arr));
+    
+        
+    }
+}
