@@ -1,0 +1,103 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        
+        
+        ListNode tmp=new ListNode(-1,null);
+        ListNode p=tmp;
+        int i=0;
+        ListNode curr=l1;
+        ListNode pre=null;
+        ListNode nxt=null;
+        while(curr!=null)
+        {
+            nxt=curr.next;
+            curr.next=pre;
+            pre=curr;
+            curr=nxt;
+        }
+        curr=null;
+        curr=l2;
+        ListNode pre1=null;
+        nxt=null;
+        while(curr!=null)
+        {
+            nxt=curr.next;
+            curr.next=pre1;
+            pre1=curr;
+            curr=nxt;
+        }
+        while(pre!=null && pre1!=null)
+        {
+            
+            
+            ListNode a=new ListNode((pre.val+pre1.val+i)%10);
+            p.next=a;
+            if(pre.val+pre1.val+i>=10)
+               i=(pre.val+pre1.val+i)/10;
+            else
+               i=0;
+            pre=pre.next;
+            pre1=pre1.next;
+            p=p.next;
+            
+            
+            
+        }
+       
+        while(pre!=null)
+        {
+            ListNode a=new ListNode((pre.val+i)%10);
+            p.next=a;
+            if(pre.val+i>=10)
+              i=(pre.val+i)/10;
+            else
+                i=0;
+            p=p.next;
+            pre=pre.next;
+        }
+        
+        while(pre1!=null)
+        {
+            ListNode a=new ListNode((pre1.val+i)%10);
+            p.next=a;
+            if(pre1.val+i>=10)
+              i=(pre1.val+i)/10;
+            else
+                i=0;
+            
+            p=p.next;
+            pre1=pre1.next;
+        }
+        
+        if(pre==null && pre1==null && i>0)
+        {
+            
+            ListNode a=new ListNode(i);
+            p.next=a;
+        }
+        ListNode c1=tmp.next;
+        ListNode p2=null;
+        ListNode n3=null;
+        
+        
+        while(c1!=null)
+        {
+            n3=c1.next;
+            c1.next=p2;
+            p2=c1;
+            c1=n3;
+        }
+        
+        return p2;
+    }
+}
