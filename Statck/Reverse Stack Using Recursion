@@ -1,0 +1,32 @@
+import java.util.Stack;
+
+public class Solution {
+    public static void stack_insert_Bottom(Stack<Integer>stack,int tmp)
+    {
+       if(stack.isEmpty())
+        {
+            stack.push(tmp);
+            return;
+        }
+        int data=stack.peek();
+        stack.pop();
+        stack_insert_Bottom(stack,tmp);
+        stack.push(data);
+    }
+    public static void reverse(Stack<Integer>stack)
+    {
+        if(stack.isEmpty())
+        {
+            return;
+        }
+        int tmp=stack.peek();
+        stack.pop();
+        reverse(stack);
+        stack_insert_Bottom(stack,tmp);
+    }
+	public static void reverseStack(Stack<Integer> stack) {
+        //System.out.println(stack.peek());
+        reverse(stack);
+     }
+
+}
