@@ -1,0 +1,23 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution 
+{
+    public static void stack(Stack <Integer> my,int x)
+    {
+        if(my.isEmpty())
+        {
+            my.push(x);
+            return;
+        }
+        int tmp=my.peek();
+        my.pop();
+        stack(my,x);
+        my.push(tmp);
+    }
+  public static Stack<Integer> pushAtBottom(Stack <Integer> myStack, int x) 
+  {
+      
+      stack(myStack,x);
+      return myStack;
+  }
+}
