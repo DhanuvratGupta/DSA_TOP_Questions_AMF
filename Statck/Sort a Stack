@@ -1,0 +1,34 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static void swap(Stack<Integer>stack,int num)
+    {
+        if(!stack.isEmpty() && stack.peek()>num)
+        {
+            int tmp=stack.peek();
+            stack.pop();
+            swap(stack,num);
+            stack.push(tmp);
+        }
+        else
+        {
+            stack.push(num);
+            return;
+        }
+    }
+    public static void stack(Stack<Integer>stack)
+    {
+        if(stack.isEmpty())
+        {
+            return;
+        }
+        int num=stack.peek();
+        stack.pop();
+        stack(stack);
+        swap(stack,num);
+    }
+    public static void sortStack(Stack<Integer> stack) {
+        stack(stack);
+    }
+
+}
