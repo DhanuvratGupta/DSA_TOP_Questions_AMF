@@ -1,0 +1,50 @@
+//LINK OF THE QUESTION - https://www.codingninjas.com/codestudio/problems/redundant-brackets_975473?leftPanelTab=0
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution 
+{
+    public static boolean findRedundantBrackets(String s) 
+    {
+        Stack<Character>stack=new Stack<>();
+        int i=0,count=0;
+        while(i<s.length())
+        {
+            if(s.charAt(i)=='(')
+            {
+                
+                stack.push(')');
+            }
+            else if(s.charAt(i)=='+' ||s.charAt(i)=='-'||s.charAt(i)=='*'||s.charAt(i)=='/')
+            {
+                stack.push(s.charAt(i));
+            }
+            else if(s.charAt(i)==')')
+            {
+                if(!stack.isEmpty() && (stack.peek()=='+' ||stack.peek()=='-'||stack.peek()=='*'||stack.peek()=='/'))
+                {
+                    //System.out.println(stack);
+                    stack.pop();
+                    count++;
+                    i--;
+                }
+                if(!stack.isEmpty() && s.charAt(i)==stack.peek())
+                {
+                     
+                    if(count==0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        stack.pop();
+                        count=0;
+                    }
+                }
+            }
+           i++;
+        }
+        return false;
+    }
+}
