@@ -1,0 +1,57 @@
+//https://leetcode.com/problems/backspace-string-compare/
+class Solution {
+    public boolean backspaceCompare(String s, String t) {
+        Stack<Character>stack1=new Stack<>();
+        Stack<Character>stack2=new Stack<>();
+        int index1=0,index2=0;
+        
+        while(index1<s.length())
+        {
+            
+            if(!stack1.isEmpty() && s.charAt(index1)=='#')
+            {
+                stack1.pop();
+            }
+            else
+            {
+                stack1.push(s.charAt(index1));
+            }
+            index1++;
+        }
+        while(index2<t.length())
+        {
+            
+            if(!stack2.isEmpty() && t.charAt(index2)=='#')
+            {
+                stack2.pop();
+            }
+            else
+            {
+                stack2.push(t.charAt(index2));
+            }
+            index2++;
+        }
+        while(!stack1.isEmpty() && !stack2.isEmpty())
+        {
+            
+            if(stack1.peek()==stack2.peek())
+            {
+                stack1.pop();
+                stack2.pop();
+            }
+            else
+            {
+                break;
+            }
+        }
+        if((stack1.size()==1 && stack1.peek()=='#' && stack2.isEmpty()) || (stack2.size()==1 && stack2.peek()=='#') && stack1.isEmpty())
+        {
+            return true;
+        }
+        if(!stack1.isEmpty() || !stack2.isEmpty())
+        {
+            return false;
+        }
+        return true;
+    }
+}
