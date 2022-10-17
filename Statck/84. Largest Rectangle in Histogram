@@ -1,0 +1,82 @@
+//https://leetcode.com/problems/largest-rectangle-in-histogram/
+class Solution {
+    public static ArrayList<Integer> nextPre(int[] heights)
+    {
+        ArrayList<Integer>p=new ArrayList<>();
+        Stack<Integer>stack=new Stack<>();
+        stack.push(-1);
+        int index=0;
+        for(int i=0;i<heights.length;i++)
+        {
+             index=i;
+            while(stack.peek()!=-1 && heights[i]<=heights[stack.peek()])
+            {
+                stack.pop();
+                 index--;
+                
+            }
+            if(stack.peek()==-1)
+               p.add(stack.peek()+1);
+            else
+            {
+                System.out.println(stack.peek()+1);
+                 p.add(stack.peek()+1);
+            }
+               
+            stack.add(i);
+            
+        }
+        return p;
+        
+    }
+    public static ArrayList<Integer> nextnxt(int[] heights)
+    {
+        ArrayList<Integer>p=new ArrayList<>();
+        Stack<Integer>stack=new Stack<>();
+        stack.push(-1);
+        int index=0;
+        for(int i=heights.length-1;i>=0;i--)
+        {
+            while(stack.peek()!=-1 && heights[i]<=heights[stack.peek()])
+            {
+                stack.pop();
+                 
+                
+            }
+            if(stack.peek()==-1)
+               p.add(stack.peek()+1);
+            
+            else
+            {
+                System.out.println(stack.peek()+1);
+                 p.add(stack.peek()+1);
+            }
+               
+            stack.add(i);
+        }
+        return p;
+        
+    }
+    public int largestRectangleArea(int[] heights) {
+        ArrayList<Integer>pre=new ArrayList<>();
+        ArrayList<Integer>next=new ArrayList<>();
+        pre=nextPre(heights);
+        System.out.println(pre);
+        next=nextnxt(heights);
+        Collections.reverse(next);
+        System.out.println(next);
+        int area=0;
+        for(int i=0;i<heights.length;i++)
+        {
+            int l=heights[i];
+            int b=next.get(i)-pre.get(i)+1;
+            
+            int tmp=l*b;
+            if(area<tmp)
+            {
+                area=tmp;
+            }
+        }
+        return area;
+    }
+}
