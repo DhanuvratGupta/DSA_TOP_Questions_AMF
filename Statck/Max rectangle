@@ -1,0 +1,164 @@
+//https://practice.geeksforgeeks.org/problems/max-rectangle/1
+//{ Driver Code Starts
+import java.util.*;
+
+class FindMinCost
+{
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while(t > 0)
+		{
+			int n = sc.nextInt();
+			int m = sc.nextInt();
+			int arr[][] = new int[n][m];
+			for(int i=0; i<n; i++)
+			{
+				for(int j=0; j<m; j++ )
+				{
+					arr[i][j] = sc.nextInt();
+				}
+			}
+			System.out.println(new Solution().maxArea(arr, n, m));
+		t--;
+		}
+	}
+}
+// } Driver Code Ends
+
+
+/*Complete the function given below*/
+class Solution {
+    public static int find_rec(int arr[])
+    {
+        Stack<Integer>stack=new Stack<>();
+        //pre  value's of the array-----
+        int pre[]=new int[arr.length];
+        int s=0;
+        stack.push(-1);
+        for(int k=0;k<arr.length;k++)
+        {
+            int ans=k;
+            while(!stack.isEmpty())
+            {
+                if(stack.peek()!=-1 && arr[stack.peek()]<arr[k])
+                {
+                    
+                    pre[s]=ans;
+                    s++;
+                    break;
+                }
+                else if(stack.peek()==-1)
+                {
+                    //System.out.println("hy");
+                    pre[s]=0;
+                    s++;
+                    break;
+                }
+                else
+                {
+                   
+                    ans=stack.peek();
+                    stack.pop();
+                  
+                    
+                }
+                
+                
+            }
+            
+            stack.push(k);
+            
+        }
+        /*if(!stack.isEmpty())
+        {
+            pre[s]=stack.pop();
+            
+        }*/
+        stack.clear();
+        s=0;
+        //next value's of the array-----
+        int nxt[]=new int[arr.length];
+        stack.add(-1);
+        for(int k=arr.length-1;k>=0;k--)
+        {
+            int ans=k;
+            while(!stack.isEmpty())
+            {
+                if(stack.peek()!=-1 && arr[stack.peek()]<arr[k])
+                {
+                    
+                    nxt[s]=ans;
+                    
+                    
+                    s++;
+                    break;
+                }
+                else if(stack.peek()==-1)
+                {
+                    nxt[s]=arr.length-1;
+                    s++;
+                    break;
+                }
+                else
+                {
+                    
+                    
+                        ans=stack.peek();
+                        stack.pop();
+                   
+                    
+                }
+                
+                
+            }
+            
+       
+            
+            
+            stack.push(k);
+        }
+        //System.out.println("pre element values"+Arrays.toString(pre)+"next element values"+Arrays.toString(nxt));
+        //Area Find---
+        int area1=0;
+        for(int i1=0;i1<arr.length;i1++)
+        {
+            int l=arr[i1];
+            int b=nxt[nxt.length-1-i1]-pre[i1]+1;
+            
+            int tmp=l*b;
+            if(area1<tmp)
+            {
+                area1=tmp;
+            }
+        }
+        return area1;
+    }
+    public int maxArea(int M[][], int n, int m) {
+        int ans=0,area=0;
+        int arr[]=new int[m];
+        for(int i=0;i<n;i++)
+        {
+            
+            for(int j=0;j<m;j++)
+            {
+                if(M[i][j]!=0)
+                  arr[j]=arr[j]+M[i][j];
+                else
+                  arr[j]=0;
+            }
+            //System.out.println(Arrays.toString(arr));
+            area=find_rec(arr);
+            //System.out.println(area);
+            if(area>ans)
+            {
+                ans=area;
+            }
+            //break;
+            
+        }
+        //System.out.println(ans);
+        return ans;
+    }
+}
