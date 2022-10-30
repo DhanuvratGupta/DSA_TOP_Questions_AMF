@@ -1,0 +1,31 @@
+//https://leetcode.com/problems/find-the-winner-of-the-circular-game/submissions/
+class Solution {
+    public int findTheWinner(int n, int k) {
+        Deque<Integer>q=new LinkedList<>();
+        int count=0,i=1;
+        while(i<=n)
+        {
+            q.add(i);
+            i++;
+        }
+        while(q.size()!=1)
+        {
+            count++;
+            if(count==k)
+            {
+                count=0;
+                q.removeFirst();
+            }
+            else
+            {
+                int a=q.peek();
+                q.removeFirst();
+                q.addLast(a);
+                //count++;
+            }
+            
+        }
+        //System.out.println(q.peek());
+        return q.peek();
+    }
+}
