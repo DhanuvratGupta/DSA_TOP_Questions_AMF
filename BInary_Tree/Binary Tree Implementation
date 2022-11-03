@@ -1,0 +1,66 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class node{
+        int data=-1;
+        node left;
+        node right;
+        node(int val)
+        {
+            data=val;
+            left=right=null;
+        }
+    }
+class HelloWorld {
+    
+    public static node insert(node root)
+    {
+        System.out.println("Enter value");
+        Scanner sc =new Scanner(System.in);
+        int val=sc.nextInt();
+        if(val==-1)
+        {
+            return root;
+        }
+        
+        root=new node(val);
+        System.out.println("Enter Value of left of "+val);
+        root.left=insert(root.left);
+        System.out.println("Enter Value of right of "+val);
+        root.right=insert(root.right);
+        return root;
+    }
+    public static void print(node root)
+    {
+        Queue<node>q=new LinkedList<>();
+        q.add(root);
+        q.add(null);
+        
+        while(!q.isEmpty())
+        {
+            node tmp=q.peek();
+            q.remove();
+            if(tmp==null)
+            {
+                System.out.print("\n");
+            }
+            else
+            {
+                System.out.print(tmp.data);
+                
+                if(tmp.left!=null)
+                   q.add(tmp.left);
+                if(tmp.right!=null)
+                   q.add(tmp.right);
+            }
+            
+            
+        }
+    }
+    public static void main(String[] args) {
+        node root=null;
+        HelloWorld a=new HelloWorld();
+        root=insert(root);
+        print(root);
+    }
+}
