@@ -1,0 +1,25 @@
+import java.util.*;
+public class Solution {
+    public static int fab(int a1)
+    {
+        if(a1==1 || a1==0)
+        {
+            return a1;
+        }
+        return fab(a1-1)+fab(a1-2);
+    }
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int arr[]=new int[a];
+        
+        int n=fab(a,arr);
+        System.out.println(n);
+		
+	}
+
+}
+ 
+time complexity = o(n)
+space complexity/ = o(1)
