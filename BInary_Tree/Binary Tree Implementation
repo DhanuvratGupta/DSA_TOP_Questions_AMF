@@ -43,6 +43,10 @@ class HelloWorld {
             if(tmp==null)
             {
                 System.out.print("\n");
+                if(!q.isEmpty())
+                {
+                    q.add(null);
+                }
             }
             else
             {
