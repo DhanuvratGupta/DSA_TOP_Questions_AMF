@@ -1,0 +1,50 @@
+//https://practice.geeksforgeeks.org/problems/height-of-binary-tree/1
+//{ Driver Code Starts
+//Initial Template for Java
+
+
+class Node
+{
+    int data;
+    Node left, right;
+
+    Node(int item)
+    {
+        data = item;
+        left = right = null;
+    }
+}
+ */
+
+class Solution {
+    //Function to find the height of a binary tree.
+    public static void fun(Node node,int count,ArrayList<Integer>list)
+    {
+        //System.out.println(count);
+        if(node==null)
+        {
+            //System.out.println(count);
+            if(list.get(list.size()-1)<count)
+            {
+                list.add(count);
+            }
+            
+            return;
+        }
+         fun(node.left,count+1,list);
+        
+        fun(node.right,count+1,list);
+        
+        
+    }
+    int height(Node node) 
+    {
+        ArrayList<Integer>list=new ArrayList<>();
+        list.add(-1);
+        fun(node,0,list);
+        //System.out.println(list);
+        Collections.sort(list);
+        return list.get(list.size()-1);
+    }
+}
+
