@@ -1,0 +1,33 @@
+//https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1?page=1&category[]=Tree&curated[]=1&sortBy=submissions
+/*class Node {
+    int data;
+    Node left;
+    Node right;
+    Node(int data) {
+        this.data = data;
+        left = null;
+        right = null;
+    }
+}*/
+
+class Solution {
+    // Function to return the diameter of a Binary Tree.
+    int min=0;
+    public int fun(Node root)
+    {
+        if(root==null)
+        {
+            return 0;
+        }
+        int left=fun(root.left);
+        int right=fun(root.right);
+        min=Math.max(min,left+right);
+        //System.out.println(min);
+        return 1+Math.max(left,right);
+    }
+    int diameter(Node root) {
+        
+        int a= fun(root);
+        return min;
+    }
+}
