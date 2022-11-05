@@ -1,0 +1,32 @@
+// https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1
+
+/*class Node {
+    int data;
+    Node left;
+    Node right;
+    Node(int data) {
+        this.data = data;
+        left = null;
+        right = null;
+    }
+}*/
+
+class Solution {
+    // Function to return the diameter of a Binary Tree.
+    int ans =0;
+    int diameter(Node root) {
+        // Your code here
+        if(root==null) return 0;
+        int dRoot = diameter(root.left) + diameter(root.right) + 1;
+        int dl = diameter(root.left);
+        int dr = diameter(root.right);
+        return Math.max(dRoot, Math.max(dl,dr));
+    }
+    
+    // int height(Node root){
+    //     if(root ==null) return 0;
+    //     int hl = height(root.left);
+    //     int hr = height(root.right);
+    //     return Math.max(hl,hr)+1;
+    // }
+}
