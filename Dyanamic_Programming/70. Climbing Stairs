@@ -1,6 +1,8 @@
 //https://leetcode.com/problems/climbing-stairs/
-MEMORAIZATION DP
-O(n) time complexity
+//MEMORAIZATION DP
+//time complexity = o(n)
+//space complexity=o(n)+o(n)
+//                  ~o(n)
 class Solution {
     public int fun(int n,int arr[])
     {
