@@ -1,0 +1,89 @@
+//https://takeuforward.org/data-structure/boundary-traversal-of-a-binary-tree/
+import java.util.* ;
+import java.io.*; 
+/************************************************************
+
+    Following is the Binary Tree node structure:
+    
+   class TreeNode {
+	    int data;
+	    TreeNode left;
+	    TreeNode right;
+
+	    TreeNode(int data) {
+		    this.data = data;
+		    this.left = null;
+		    this.right = null;
+	    }
+
+    }
+
+************************************************************/
+
+import java.util.ArrayList;
+
+public class Solution {
+    
+    public static void find_left(TreeNode root,ArrayList<Integer>list)
+    {
+        TreeNode tmp=root.left;
+        while(tmp!=null)
+        {
+            if(isLeaf(tmp)==false)
+                list.add(tmp.data);
+            if(tmp.left!=null)
+                tmp=tmp.left;
+            else
+                tmp=tmp.right;
+         }
+     }
+    public static void find_right(TreeNode root,ArrayList<Integer>list)
+    {
+        ArrayList<Integer>cur=new ArrayList<>();
+        TreeNode tmp=root.left;
+        while(tmp!=null)
+        {
+            if(isLeaf(tmp)==false)
+                cur.add(tmp.data);
+            if(tmp.right!=null)
+                tmp=tmp.right;
+            else
+                tmp=tmp.left;
+         }
+        for(int i=cur.size()-1;i>=0;i--)
+        {
+            list.add(cur.get(i));
+        }
+    }
+    public static void find_leaf(TreeNode root,ArrayList<Integer>list)
+    {
+        if(isLeaf(root))
+            list.add(root.data);
+        if(root.left!=null)
+            find_left(root.left,list);
+        if(root.right!=null)
+            find_left(root.right,list);
+    }
+    public static boolean isLeaf(TreeNode root)
+    {
+        if(root.left==null && root.right==null)
+        {
+            return true;
+        }
+        return false;
+    }
+	public static ArrayList<Integer> traverseBoundary(TreeNode root){
+        
+        ArrayList<Integer>list=new ArrayList<>();
+        if(isLeaf(root))
+        {
+            list.add(root.data);
+            return list;
+        }
+        find_left(root,list);
+        find_leaf(root,list);
+        find_right(root,list);
+        System.out.println(list);
+        return list;
+	}
+}
