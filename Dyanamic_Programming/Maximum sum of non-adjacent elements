@@ -1,0 +1,35 @@
+//https://www.codingninjas.com/codestudio/problems/maximum-sum-of-non-adjacent-elements_843261?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar
+import java.util.* ;
+import java.io.*; 
+import java.util.*;
+public class Solution {
+    public static int fun(ArrayList<Integer> nums,int size,int num[])
+    {
+        if(size>=nums.size())
+        {
+            return 0;
+        }
+        if(size==nums.size()-1)
+        {
+            return nums.get(size);
+        }
+        if(num[size]!=-1)
+        {
+            return num[size];
+        }
+        int in=fun(nums,size+2,num)+nums.get(size);
+        int ex=fun(nums,size+1,num)+0;
+        num[size]=Math.max(in,ex);
+        System.out.println(num[size]);
+        return num[size];
+    }
+	public static int maximumNonAdjacentSum(ArrayList<Integer> nums)     {
+        int num[]=new int[nums.size()+1];
+        for(int i=0;i<=nums.size();i++)
+        {
+            num[i]=-1;
+        }
+		return fun(nums,0,num);
+        
+	}
+}
