@@ -1,0 +1,54 @@
+//https://www.codingninjas.com/codestudio/problems/normal-bst-to-balanced-bst_920472?leftPanelTab=1
+/************************************************************
+
+    Following is the TreeNode class structure
+
+    class TreeNode<T> 
+    {
+       public:
+        T data;
+        TreeNode<T> left;
+        TreeNode<T> right;
+
+        TreeNode(T data) 
+        {
+            this.data = data;
+            left = null;
+            right = null;
+        }
+    };
+
+************************************************************/
+import java.util.*;
+public class Solution 
+{
+    public static void find_Inorder(TreeNode<Integer> root,ArrayList<Integer>list)
+    {
+        if(root==null)
+            return;
+        find_Inorder(root.left,list);
+        list.add(root.data);
+        find_Inorder(root.right,list);
+    }
+    public static TreeNode<Integer> intoBST(int s,int e,ArrayList<Integer>list)
+    {
+        if(s>e)
+        {
+            return null;
+        }
+           
+        int mid=(s+e)/2;
+        TreeNode<Integer> root=new TreeNode<>(list.get(mid));
+        root.left=intoBST(s,mid-1,list);
+        root.right=intoBST(mid+1,e,list);
+        return root;
+    }
+    public static TreeNode<Integer> balancedBst(TreeNode<Integer> root)
+    {
+        ArrayList<Integer>list=new ArrayList<>();
+        find_Inorder(root,list);
+        int s=0,e=list.size()-1;
+        root=intoBST(s,e,list);
+        return root;
+    }
+}
