@@ -1,0 +1,41 @@
+//https://www.codingninjas.com/codestudio/problems/preorder-traversal-to-bst_893111?leftPanelTab=0
+import java.util.*;
+import java.io.*; 
+/*
+    Following is the class structure of the BinaryTreeNode class for referance:
+
+	class BinaryTreeNode<T> {
+	    public T data;
+	    public BinaryTreeNode<T> left;
+	    public BinaryTreeNode<T> right;
+
+	    BinaryTreeNode(T data) {
+	        this.data = data;
+	        left = null;
+	        right = null;
+	    }
+	}
+
+*/
+
+
+public class Solution {
+    public static BinaryTreeNode<Integer> intoBST(ArrayList<Integer>list,int s,int e)
+    {
+        if(s>e)
+           return null;
+        int mid=(s+e)/2;
+        BinaryTreeNode<Integer>root=new BinaryTreeNode<Integer>(list.get(mid));
+        root.left=intoBST(list,s,mid-1);
+        root.right=intoBST(list,mid+1,e);
+        return root;
+    }
+   
+	public static BinaryTreeNode<Integer> prorderToBST(ArrayList<Integer> preorder) {
+		int i=0;
+        Collections.sort(preorder);
+        int  s=0,e=preorder.size()-1;
+        return intoBST(preorder,s,e);
+        
+	}
+}
