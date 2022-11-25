@@ -1,0 +1,54 @@
+//https://www.codingninjas.com/codestudio/problems/two-sum-in-a-bst_1062631?leftPanelTab=0
+import java.util.* ;
+import java.io.*; 
+/* 
+
+	Following is the class used to represent the object/node of the Binary Tree
+
+	class BinaryTreeNode<T> {
+	    T data;
+	    BinaryTreeNode<T> left;
+	    BinaryTreeNode<T> right;
+
+	    public BinaryTreeNode(T data) {
+	        this.data = data;
+	    }
+	}
+
+*/
+
+public class Solution {
+    
+    public static void In_order(BinaryTreeNode<Integer> root, int target,ArrayList<Integer>list)
+    {
+        
+        if(root==null)
+            return;
+        In_order(root.left,target,list);
+        list.add(root.data);
+        In_order(root.right,target,list);
+    }
+	public static boolean twoSumInBST(BinaryTreeNode<Integer> root, int target) {
+		ArrayList<Integer>list=new ArrayList<>();
+        In_order(root,target,list);
+        int s=0,e=list.size()-1;
+        while(s<e)
+        {
+            int sum=list.get(s)+list.get(e);
+            if(sum==target)
+            {
+                return true;
+            }
+            else if(sum>target)
+            {
+                e--;
+            }
+            else
+            {
+                s++;
+            }
+        }
+        return false;
+
+	}
+}
