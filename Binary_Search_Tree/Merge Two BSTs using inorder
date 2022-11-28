@@ -1,0 +1,55 @@
+//https://www.codingninjas.com/codestudio/problems/h_920474?leftPanelTab=1&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar
+import java.util.* ;
+import java.io.*; 
+/*********************************************************
+
+	Following is the TreeNode structure:
+
+	class TreeNode<T> {
+	    T data;
+	    TreeNode<T> left;
+	    TreeNode<T> right;
+
+	    public TreeNode(T data) {
+	        this.data = data;
+	    }
+	}
+
+********************************************************/
+
+public class Solution {
+   public static TreeNode<Integer> find(ArrayList<Integer>list,int s,int e)
+   {
+       int mid=(s+e)/2;
+       
+       if(s>e)
+       {
+           return null;
+       }
+       TreeNode<Integer>root=new TreeNode<>(list.get(mid));
+       root.left=find(list,s,mid-1);
+       root.right=find(list,mid+1,e);
+       return root;
+       
+       
+   }
+    public static void inorder(TreeNode<Integer>root,ArrayList<Integer>list)
+    {
+        if(root==null)
+            return;
+        inorder(root.left,list);
+        list.add(root.data);
+        inorder(root.right,list);
+    }
+   static TreeNode < Integer > mergeBST(TreeNode < Integer > root1, TreeNode < Integer > root2) {
+      //find(root1,root2);
+       ArrayList<Integer>list=new ArrayList<>();
+       inorder(root1,list);
+       inorder(root2,list);
+       Collections.sort(list);
+      int s=0,e=list.size()-1;
+      TreeNode<Integer>root=find(list,s,e);
+      return root;
+   }
+
+}
