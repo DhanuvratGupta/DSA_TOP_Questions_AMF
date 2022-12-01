@@ -12,7 +12,7 @@ class HelloWorld {
             
             curr=left;
         }
-        else if(right<n && arr[curr]<arr[right])
+        if(right<n && arr[curr]<arr[right])
         {
             
             curr=right;
