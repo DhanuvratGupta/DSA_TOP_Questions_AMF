@@ -9,20 +9,19 @@ class HelloWorld {
         int right=2*curr+1;
         if(left<n && arr[curr]<arr[left])
         {
-            int tmp=arr[curr];
-            arr[curr]=arr[left];
-            arr[left]=tmp;
+            
             curr=left;
         }
         else if(right<n && arr[curr]<arr[right])
         {
-            int tmp=arr[curr];
-            arr[curr]=arr[right];
-            arr[right]=tmp;
+            
             curr=right;
         }
         if(curr!=i)
         {
+            int tmp=arr[curr];
+            arr[curr]=arr[i];
+            arr[i]=tmp;
             hapify(arr,n,i);
         }
     }
