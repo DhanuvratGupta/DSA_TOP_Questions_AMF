@@ -1,0 +1,21 @@
+//https://practice.geeksforgeeks.org/problems/merge-two-binary-max-heap0144/1
+class Solution{
+    public int[] mergeHeaps(int[] a, int[] b, int n, int m) {
+        int arr[]=new int[n+m];
+        PriorityQueue<Integer>q=new PriorityQueue<>(Collections.reverseOrder());
+        for(int i=0;i<n;i++)
+        {
+            q.add(a[i]);
+        }
+        for(int i=0;i<m;i++)
+        {
+            q.add(b[i]);
+        }
+        for(int i=0;i<m+n;i++)
+        {
+            arr[i]=q.peek();
+            q.remove();
+        }
+        return arr;
+    }
+}
