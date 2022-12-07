@@ -1,0 +1,46 @@
+//https://www.codingninjas.com/codestudio/problems/k-th-largest-sum-contiguous-subarray_920398?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar
+import java.util.*;
+
+public class Solution {
+
+	public static int getKthLargest(ArrayList<Integer> arr, int k) {
+       Stack<Integer> q=new Stack<>();
+        int a1=0;
+       for(int i=0;i<arr.size();i++)
+       {
+           
+           for(int j=i;j<arr.size();j++)
+           {
+               if(i==j)
+               {
+                     q.push(arr.get(j)); 
+               }
+                
+               else
+               {
+                   q.push(q.peek()+arr.get(j));
+               }
+               //System.out.println(q);
+               
+           }
+       }
+        PriorityQueue<Integer>queue=new PriorityQueue<>(Collections.reverseOrder());
+        while(!q.isEmpty())
+        {
+            queue.add(q.pop());
+        }
+        //System.out.println(q);
+       int i=0;
+       while(!queue.isEmpty())
+       {
+           if(i==k-1)
+           {
+               return queue.peek();
+           }
+           queue.remove();
+           i++;
+       }
+        return 0;
+		
+	}
+}
