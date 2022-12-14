@@ -1,0 +1,32 @@
+//https://leetcode.com/problems/house-robber/submissions/859482007/
+class Solution {
+    
+    public int find(int []nums,int i,int sum,int n1,int arr[])
+    {
+        if(i>=nums.length)
+        {
+            
+            return 0;
+        }
+       
+        if(arr[i]!=-1)
+        {
+              return arr[i];
+            
+        }
+        
+        int in=nums[i]+find(nums,i+2,sum,n1,arr);
+        
+        int ex=0+find(nums,i+1,sum,n1,arr);
+        arr[i]=Math.max(in,ex);
+        System.out.println(arr[i]);
+        return arr[i];
+    }
+    public int rob(int[] nums) {
+        int arr[]=new int[nums.length];
+        Arrays.fill(arr,-1);
+        int max=find(nums,0,0,0,arr);
+        
+        return max;
+    }
+}
