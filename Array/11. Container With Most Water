@@ -1,0 +1,50 @@
+//https://leetcode.com/problems/container-with-most-water/submissions/861892639/
+class Solution {
+    public int left(int []left1,int index)
+    {
+       
+       
+       for(int i=0;i<=index;i++)
+       {
+           if(left1[i]>=left1[index])
+           {
+               return i;
+           }
+           
+       }
+       
+       return -1;
+    }
+    public int right(int []right1,int index)
+    {
+        
+      for(int i=right1.length-1;i>=index;i--)
+       {
+           if(right1[i]>=right1[index])
+           {
+               return i;
+           }
+           
+       }
+       
+       return -1;
+    }
+    public int maxArea(int[] height) {
+        int max=Integer.MIN_VALUE;
+        int left1[]=new int[height.length];
+        int right1[]=new int[height.length];
+        for(int i=0;i<height.length;i++)
+        {
+            left1[i]=left(height,i);
+            right1[i]=right(height,i);
+        }
+        for(int i=0;i<height.length;i++)
+        {
+            int ans=(right1[i]-left1[i])*height[i];
+            System.out.println(ans);
+            max=Math.max(max,ans);
+        }
+        System.out.println(Arrays.toString(left1)+" "+Arrays.toString(right1));
+        return max;
+    }
+}
