@@ -1,0 +1,40 @@
+//https://leetcode.com/problems/maximum-bags-with-full-capacity-of-rocks/description/
+class Solution {
+    public int maximumBags(int[] capacity, int[] rocks, int additionalRocks) {
+        int remaning_rock[]=new int[rocks.length];
+        for(int i=0;i<rocks.length;i++)
+        {
+          remaning_rock[i]=capacity[i]-rocks[i];
+
+        }
+        Arrays.sort(remaning_rock);
+        System.out.println(Arrays.toString(remaning_rock));
+        for(int i=0;i<rocks.length;i++)
+        {
+          
+          if(additionalRocks==0)
+          {
+            break;
+          }
+          if(remaning_rock[i]<=additionalRocks)
+          {
+            int count=additionalRocks-remaning_rock[i];
+            remaning_rock[i]=0;
+            additionalRocks=count;
+            //System.out.println(remaning_rock[i]+" "+additionalRocks);
+          }
+          
+          
+        }
+        System.out.println(Arrays.toString(remaning_rock));
+        int count=0;
+        for(int i=0;i<rocks.length;i++)
+        {
+          if(remaning_rock[i]==0)
+          {
+            count+=1;
+          }
+        }
+        return count;
+    }
+}
