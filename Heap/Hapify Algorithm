@@ -22,14 +22,15 @@ class HelloWorld {
             int tmp=arr[curr];
             arr[curr]=arr[i];
             arr[i]=tmp;
-            hapify(arr,n,i);
+            hapify(arr,n,curr);
         }
     }
     public static void main(String[] args) {
         int arr[]={-1,54,55,53,52,50};
-        for(int i=arr.length/2;i>0;i--)
+        int n=arr.length-1;
+        for(int i=n/2;i>0;i--)
         {
-            hapify(arr,arr.length,i);
+            hapify(arr,n,i);
         }
         for(int i=0;i<arr.length;i++)
         {
