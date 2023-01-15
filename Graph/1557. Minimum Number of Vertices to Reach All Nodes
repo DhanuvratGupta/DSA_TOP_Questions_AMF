@@ -1,0 +1,19 @@
+https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/submissions/878356151///
+class Solution {
+    public List<Integer> findSmallestSetOfVertices(int n, List<List<Integer>> edges) {
+        List<Integer>list=new ArrayList<>();
+        boolean arr[]=new boolean[n];
+        for(List<Integer>tmp:edges)
+        {
+          arr[tmp.get(1)]=true;
+        }
+        for(int i=0;i<n;i++)
+        {
+          if(arr[i]!=true)
+          {
+            list.add(i);
+          }
+        }
+        return list;
+    }
+}
