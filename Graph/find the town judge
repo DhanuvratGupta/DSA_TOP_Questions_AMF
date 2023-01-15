@@ -1,0 +1,44 @@
+//https://leetcode.com/problems/find-the-town-judge/submissions/878387836/
+class Solution {
+    public int findJudge(int n, int[][] trust) {
+       List<List<Integer>>list=new ArrayList<>();
+       for(int i=0;i<=n;i++)
+       {
+         list.add(new ArrayList<>());
+       }
+       for(int val[]:trust)
+       {
+          list.get(val[0]).add(val[1]);
+       }
+        boolean arr[]=new boolean[n+1];
+        arr[0]=true;
+        for(int val[]:trust)
+        {
+          arr[val[0]]=true;
+        }
+        System.out.println(list);
+        int count=0,ans=0;
+        for(int i=1;i<=n;i++)
+        {
+          if(arr[i]==true)
+          {
+             count++;
+          }
+          else
+          {
+            ans=i;
+          }
+        }
+        list.get(0).add(ans);
+        list.get(list.size()-1).add(ans);
+        list.get(ans).add(ans);
+       for(List<Integer>tmp:list)
+       {
+         if(!tmp.contains(ans))
+         {
+           return -1;
+         }
+       }
+       return ans;
+    }
+}
