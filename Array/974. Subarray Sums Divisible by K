@@ -1,0 +1,28 @@
+class Solution {
+    public int subarraysDivByK(int[] nums, int k) {
+        
+        Map<Integer, Integer> remainderCount = new HashMap<>();
+      
+        remainderCount.put(0, 1);
+        
+        int sum = 0;
+      
+        int result = 0;
+        
+        for(int a : nums){
+           
+            sum = (sum + a) % k;
+            
+            System.out.println(sum);
+            if(sum < 0) sum += k;
+            
+            if(remainderCount.containsKey(sum)){
+                result += remainderCount.get(sum);
+            }
+          
+            remainderCount.put(sum, remainderCount.getOrDefault(sum, 0) + 1);
+        }
+        
+        return result;
+    }
+}
