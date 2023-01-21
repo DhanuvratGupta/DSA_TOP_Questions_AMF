@@ -1,0 +1,32 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode swapPairs(ListNode head) {
+        ListNode size=head;
+        int s=0;
+        while(size!=null)
+        {
+          s++;
+          size=size.next;
+        }
+        int a=0;
+        size=head;
+        while(a<s/2)
+        {
+          int tmp=size.val;
+          size.val=size.next.val;
+          size.next.val=tmp;
+          size=size.next.next;
+          a++;
+        }
+        return head;
+    }
+}
