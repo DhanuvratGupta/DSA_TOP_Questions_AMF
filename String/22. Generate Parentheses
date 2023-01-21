@@ -1,0 +1,27 @@
+class Solution {
+  public static void fun(String tmp,int o,int c,List<String>list,int n)
+  {
+    if(tmp.length()==2*n)
+    {
+      list.add(tmp);
+      return;
+    }
+    if(o<n)
+    {
+      fun(tmp+"(",o+1,c,list,n);
+    }
+    if(c<o)
+    {
+       System.out.println(c);
+      fun(tmp+")",o,c+1,list,n);
+      System.out.println(c);
+    }
+    return;
+  }
+    public List<String> generateParenthesis(int n) {
+        
+        List<String>list=new ArrayList<>();
+        fun("(",1,0,list,n);
+        return list;
+    }
+}
