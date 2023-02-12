@@ -1,0 +1,88 @@
+class Solution {
+   class Pair{
+            int row;
+            int col;
+            int count;
+            Pair(int row, int col,int count){
+                this.row = row;
+                this.col = col;
+                this.count=count;
+            }
+        }
+    public int maxDistance(int[][] grid) {
+      Queue<Pair>q=new LinkedList<>();
+      int ans[][]=new int[grid.length][grid[0].length];
+      for(int i=0;i<grid.length;i++)
+      {
+        for(int j=0;j<grid[0].length;j++)
+        {
+          if(grid[i][j]==1)
+          {
+            q.add(new Pair(i,j,0));
+            ans[i][j]=1;
+          }
+          else
+          {
+            ans[i][j]=-1;
+          }
+        }
+      }
+      int n=grid.length;
+      int target=0;
+      int m=grid[0].length;
+      int max=Integer.MIN_VALUE;
+      while(!q.isEmpty())
+      {
+        int count=q.peek().count;
+        //System.out.println(count);
+        int r=q.peek().row;
+        int c=q.peek().col;
+        max=Math.max(max,count);
+        q.remove();
+        if(isValid(r, c+1, n, m) && ans[r][c+1] == -1){
+                q.add(new Pair(r, c+1,count+1));
+                ans[r][c+1] = count + 1;
+                target++;
+            }
+        if(isValid(r, c-1, n, m) && ans[r][c-1] == -1){
+            q.add(new Pair(r, c-1,count+1));
+            ans[r][c-1] = count + 1;
+            target++;
+        }
+        
+        if(isValid(r+1, c, n, m) && ans[r+1][c] == -1){
+            q.add(new Pair(r+1, c,count+1));
+            ans[r+1][c] = count + 1;
+            target++;
+        }
+        
+        if(isValid(r-1, c, n, m) && ans[r-1][c] == -1){
+            q.add(new Pair(r-1, c,count+1));
+            ans[r-1][c] = count + 1;
+            target++;
+        }
+      }
+        for(int i=0;i<grid.length;i++)
+        {
+          for(int j=0;j<grid[0].length;j++)
+          {
+            System.out.println(ans[i][j]);
+          }
+        }
+        if(max<0 || target==0)
+        {
+          return -1;
+        }
+        return max;
+    }
+    
+    //Method for checing validity
+    public boolean isValid(int i, int j, int n, int m){
+        if(i < 0 || i >= n || j < 0 || j >= m){
+            return false;
+        }
+        return true;
+    }
+    
+  }
+    
