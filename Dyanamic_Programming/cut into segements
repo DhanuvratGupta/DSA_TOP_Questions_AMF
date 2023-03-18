@@ -1,0 +1,41 @@
+import java.util.Arrays;
+
+public class Solution {
+    int max=Integer.MIN_VALUE;
+    int pre=0;
+    public static int find(int n,int x,int y,int z,int arr[])
+    {
+        if(n==0)
+        {
+           
+           return 0;
+        }
+        if(n<0)
+        {
+            return Integer.MIN_VALUE;
+        }
+        if(arr[n]!=-1)
+        {
+            return arr[n];
+        }
+        int a=find(n-x, x, y, z,arr)+1;
+        
+        int b=find(n-y, x, y, z,arr)+1;
+        
+        int c=find(n-z, x, y, z,arr)+1;
+        
+        arr[n]=Math.max(c,Math.max(a,b));
+        return arr[n];
+    }
+    public static int cutSegments(int n, int x, int y, int z) {
+        int arr[]=new int[n+1];
+        Arrays.fill(arr,-1);
+        int ans=find(n,x,y,z,arr);
+        
+        if(ans<0)
+        {
+            return 0;
+        }
+        return ans;
+    }
+}
