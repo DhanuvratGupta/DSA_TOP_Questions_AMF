@@ -1,0 +1,109 @@
+What is a difference between the == operator and .equals() method in Java?
+How does the JVM handle garbage collection, and what are the different types of garbage collectors available in Java?
+What is the difference between checked and unchecked exceptions in Java, and when would you use one over the other?
+How does the synchronized keyword work in Java, and what are some alternatives to using it?
+What is a lambda expression in Java, and how does it differ from an anonymous inner class?
+What is the difference between transient and volatile variables in Java, and when would you use one over the other?
+What is the purpose of the finalize() method in Java, and when is it called?
+How does polymorphism work in Java, and what are some real-world examples of how it can be used?
+What is the purpose of the static keyword in Java, and when would you use it?
+What is the difference between an interface and an abstract class in Java, and when would you use one over the other?
+What is the difference between public, protected, private, and default access modifiers in Java?
+What is the difference between abstract and final classes in Java, and when would you use one over the other?
+What is the difference between ArrayList and LinkedList in Java, and when would you use one over the other?
+What is the hashCode() method in Java, and how is it used?
+What is the difference between transient and static variables in Java?
+What is a Callable interface in Java, and how is it different from a Runnable interface?
+What is a ThreadLocal variable in Java, and how is it used?
+What is a Comparator interface in Java, and how is it used?
+What is the difference between ClassLoader.loadClass() and Class.forName() methods in Java?
+What is the purpose of the System.gc() method in Java, and when is it called?
+What is a Proxy class in Java, and how is it used?
+What is the difference between Map.get() and Map.containsKey() methods in Java?
+What is a concurrentHashMap in Java, and how is it different from a regular HashMap?
+What is a Thread pool in Java, and how is it used?
+What is a ThreadLocalRandom class in Java, and how is it used?
+What is a CompletableFuture in Java, and how is it used?
+What is the difference between throw and throws keywords in Java?
+What is a Collector interface in Java, and how is it used?
+What is a WeakReference in Java, and how is it used?
+What is a ConcurrentSkipListMap in Java, and how is it different from a regular TreeMap?
+What is the difference between Thread.sleep() and Object.wait() methods in Java?
+What is the difference between Comparator and Comparable interfaces in Java?
+What is a Phaser class in Java, and how is it used?
+What is a StampedLock in Java, and how is it used?
+What is a LockSupport class in Java, and how is it used?
+What is a CompletableFuture.supplyAsync() method in Java, and how is it used?
+What is the difference between Stream.filter() and Stream.map() methods in Java?
+What is a CompletableFuture.thenApply() method in Java, and how is it used?
+What is a CompletableFuture.join() method in Java, and how is it used?
+What is a CountDownLatch in Java, and how is it used?
+What is a CyclicBarrier in Java, and how is it used?
+What is the ClassLoader.defineClass() method in Java, and how is it used?
+What is a ReentrantReadWriteLock in Java, and how is it used?
+What is a java.util.concurrent.ForkJoinPool in Java, and how is it used?
+What is a Semaphore?
+What is the ConcurrentHashMap.computeIfAbsent() method in Java, and how is it used?
+What is a ConcurrentLinkedDeque in Java, and how is it used?
+What is the difference between StringBuffer and StringBuilder in Java, and when would you use one over the other?
+What is a Thread.UncaughtExceptionHandler interface in Java, and how is it used?
+What is a ThreadLocalRandom.current() method in Java, and how is it used?
+What is the Arrays.parallelSort() method in Java, and how is it used?
+What is a CompletableFuture.thenCompose() method in Java, and how is it used?
+What is a CompletableFuture.thenAccept() method in Java, and how is it used?
+What is a CompletableFuture.anyOf() method in Java, and how is it used?
+What is a CompletableFuture.allOf() method in Java, and how is it used?
+What is a java.util.concurrent.ConcurrentHashMap.KeySetView in Java, and how is it used?
+What is a ReadWriteLock in Java, and how is it used?
+What is the Lock interface in Java, and how is it used?
+What is a CopyOnWriteArrayList in Java, and how is it used?
+What is the CopyOnWriteArraySet in Java, and how is it used?
+What is the java.util.function.Predicate interface in Java, and how is it used?
+What is the java.util.function.Consumer interface in Java, and how is it used?
+What is the java.util.function.Supplier interface in Java, and how is it used?
+What is the java.util.function.Function interface in Java, and how is it used?
+What is a CompletableFuture.completeExceptionally() method in Java, and how is it used?
+What is a CompletableFuture.cancel() method in Java, and how is it used?
+What is the difference between Stream.forEach() and Stream.peek() methods in Java?
+What is a java.util.concurrent.Exchanger in Java, and how is it used?
+What is the difference between Runtime.getRuntime().availableProcessors() and java.util.concurrent.ForkJoinPool.getCommonPoolParallelism() methods in Java?
+What is the Object.clone() method in Java, and how is it used?
+What is the java.util.Optional class in Java, and how is it used?
+What is a CompletableFuture.complete() method in Java, and how is it used?
+What is the Stream.collect() method in Java, and how is it used?
+What is a CompletableFuture.runAsync() method in Java, and how is it used?
+What is the java.util.function.BiPredicate interface in Java, and how is it used?
+What is a CompletableFuture.thenRun() method in Java, and how is it used?
+What is a CompletableFuture.exceptionally() method in Java, and how is it used?
+What is the java.util.function.BiConsumer interface in Java, and how is it used?
+What is a CompletableFuture.thenCombine() method in Java, and how is it used?
+What is a CompletableFuture.thenAcceptBoth() method in Java, and how is it used?
+What is the java.lang.invoke.MethodHandle class in Java, and how is it used?
+What is a java.util.concurrent.ConcurrentSkipListMap in Java, and how is it used?
+What is a java.util.concurrent.PriorityBlockingQueue in Java, and how is it used?
+What is the java.util.concurrent.TransferQueue interface in Java, and how is it used?
+What is a java.util.concurrent.SynchronousQueue in Java, and how is it used?
+What is the java.util.concurrent.LinkedTransferQueue in Java, and how is it used?
+What is a java.util.concurrent.LinkedBlockingDeque in Java, and how is it used?
+What is the java.lang.ThreadLocal class in Java, and how is it used?
+What is the java.util.concurrent.Excecutors.newCachedThreadPool() method in Java, and how is it used?
+What is the java.util.concurrent.Excecutors.newFixedThreadPool() method in Java, and how is it used?
+What is the java.util.concurrent.Excecutors.newSingleThreadExecutor() method in Java, and how is it used?
+What is the java.util.concurrent.Future.get() method in Java, and how is it used?
+What is the java.util.concurrent.Future.isDone() method in Java, and how is it used?
+What is the java.util.concurrent.Future.isCancelled() method in Java, and how is it used?
+What is the java.util.concurrent.CompletionService interface in Java, and how is it used?
+What is the java.util.concurrent.LinkedBlockingQueue in Java, and how is it used?
+What is the java.util.concurrent.ConcurrentHashMap.computeIfPresent() method in Java, and how is it used?
+What is the java.util.concurrent.Phaser class in Java, and how is it used?
+What is the java.util.concurrent.CyclicBarrier class in Java, and how is it used?
+What is the java.util.concurrent.CountDownLatch class in Java, and how is it used?
+What is the java.util.concurrent.BrokenBarrierException class in Java, and how is it used?
+What is the java.util.concurrent.TimeoutException class in Java, and how is it used?
+What is the java.util.concurrent.TimeUnit enum in Java, and how is it used?
+What is the java.util.concurrent.atomic.AtomicLong class in Java, and how is it used?
+What is the java.util.concurrent.DelayQueue class in Java, and how is it used?
+What is the java.util.concurrent.BlockingDeque interface in Java, and how is it used?
+What is the java.util.concurrent.ThreadPoolExecutor class in Java, and how is it used?
+What is the java.util.concurrent.LinkedBlockingQueue.take() method in Java, and how is it used?
+What is the java.util.concurrent.Executors.newSingleThreadScheduledExecutor() method in Java, and how is it used?
