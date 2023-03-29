@@ -1,0 +1,34 @@
+class Solution {
+   
+    public int find_minimum_cost(int[] arr,int[] days,int[] costs,int index)
+    {
+      if(index>=days.length)
+      {
+        return 0;
+      }
+      if(arr[index]!=-1)
+      {
+        return arr[index];
+      }
+      int ans1=costs[0]+find_minimum_cost(arr,days,costs,index+1);
+
+      //7 days pass
+      int i;
+      for(i=index;i<days.length && days[i]<days[index]+7;i++);
+      int ans2=costs[1]+find_minimum_cost(arr,days,costs,i);
+
+      //30 days pass
+      int j;
+      for(j=index;j<days.length && days[j]<days[index]+30;j++);
+      int ans3=costs[2]+find_minimum_cost(arr,days,costs,j);
+
+      arr[index]=Math.min(ans1,Math.min(ans2,ans3));
+      return arr[index];
+    }
+    public int mincostTickets(int[] days, int[] costs) {
+        int arr[]=new int[days.length];
+        Arrays.fill(arr,-1);
+        return find_minimum_cost(arr,days,costs,0);
+        
+    }
+}
