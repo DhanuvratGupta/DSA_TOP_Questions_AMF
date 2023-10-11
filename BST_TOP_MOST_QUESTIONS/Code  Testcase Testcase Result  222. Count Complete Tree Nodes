@@ -1,0 +1,15 @@
+class Solution {
+    int count=0;
+    public void find(TreeNode root,List<Integer>list)
+    {
+       if(root==null) return;
+       list.add(root.val);
+       find(root.left,list);
+       find(root.right,list);
+    }
+    public int countNodes(TreeNode root) {
+        List<Integer>list=new ArrayList<>();
+        find(root,list);
+        return list.size();
+    }
+}
