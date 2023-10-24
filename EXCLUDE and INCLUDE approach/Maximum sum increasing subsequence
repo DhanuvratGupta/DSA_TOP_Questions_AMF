@@ -1,0 +1,35 @@
+class Solution
+{
+	public int maxSumIS(int arr[], int n)  
+	{  
+	    //code here.
+	  int[][] dp = new int[n+1][n+1];
+	    
+	  for(int idx=0; idx<n+1; idx++){
+	       Arrays.fill(dp[idx], -1);
+	   }
+	    
+	    return solve(arr, n,0,-1,dp);
+	}  
+	
+	public int solve(int[] arr, int size, int curr, int prev, int[][] dp) {
+	    if(curr==size) {
+	        return 0;
+	    }
+	    
+	    if(dp[curr][prev+1]!=-1){
+	        return dp[curr][prev+1];
+	    }
+	    
+	    int include = Integer.MIN_VALUE;
+	    if(prev==-1 || arr[curr]>arr[prev]){
+	        include = arr[curr]+solve(arr, size, curr+1, curr, dp);
+	    }
+	    
+	    int exclude = solve(arr, size, curr+1, prev, dp);
+	    
+	    return dp[curr][prev+1]=Math.max(include, exclude);
+	}
+	
+
+}
